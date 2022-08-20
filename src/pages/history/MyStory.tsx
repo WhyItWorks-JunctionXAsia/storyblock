@@ -6,15 +6,13 @@ import MyStorySwiper from "./MyStorySwiper";
 
 const MyStory: React.FC = () => {
   return (
-    <>
-      <Area>
-        <ContentArea style={{ paddingTop: "50px" }}>
-          <Text style={{ fontSize: "30px" }}>MY STORY</Text>
+    <Area>
+      <ContentArea style={{ padding: "50px" }}>
+        <Text style={{ fontSize: "30px" }}>MY STORY</Text>
 
-          <MyStorySwiper />
-        </ContentArea>
-      </Area>
-    </>
+        <MyStorySwiper />
+      </ContentArea>
+    </Area>
   );
 };
 

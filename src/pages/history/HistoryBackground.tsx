@@ -14,26 +14,24 @@ const BackgroundYellow = styled.div`
 `;
 
 const BackgroundPink = styled.div`
-  position:absolute;
-  top:1000px; ,
-  left: -5.86669921875px;
+  position: absolute;
+  top: 1000px;
+  left: -5px;
   width: 100%;
-  height:500px;
-  background: #F8CDE0 0% 0% no-repeat padding-box;
-  transform: skew(0,6deg);
+  height: 500px;
+  background: #f8cde0 0% 0% no-repeat padding-box;
+  transform: skew(0, 6deg);
   opacity: 0.55;
   z-index: -1;
 `;
 
-
-
 const HistoryBackground: React.FC = () => {
-    return (
-        <>
-            <BackgroundYellow/>
-            <BackgroundPink/>
-        </>
-    );
+  return (
+    <>
+      <BackgroundYellow />
+      <BackgroundPink />
+    </>
+  );
 };
 
 export default HistoryBackground;

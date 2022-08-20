@@ -5,6 +5,9 @@ export const colorset = {
   text: "#000000",
   line: "#707070",
   white: "#FFFFFF",
+  background: {
+    lightGray: "#F3F3F3",
+  },
 };
 
 export const CONTENT_AREA_DESKTOP = "75%";

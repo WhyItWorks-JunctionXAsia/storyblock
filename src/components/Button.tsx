@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+interface ButtonProps {
+  background?: string;
+  hoverBackground?: string;
+}
+
+const Button = styled.button<ButtonProps>`
   margin: 0;
   padding: 0;
   border: none;
-  background: transparent;
+  background: ${({ background }) => background || "transparent"};
 
   :hover {
     cursor: pointer;
+    background: ${({ hoverBackground }) => hoverBackground || "transparent"};
   }
 `;
 
