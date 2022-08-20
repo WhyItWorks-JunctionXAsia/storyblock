@@ -6,6 +6,7 @@ import { StargateClient } from "@cosmjs/stargate";
 import Layout from "layout/Layout";
 import HomePage from "pages/home/HomePage";
 import HistoryPage from "pages/history/HistoryPage";
+import ListPage from "./pages/list/ListPage";
 declare global {
   interface Window extends KeplrWindow {}
 }
@@ -61,6 +62,7 @@ const App: React.FC = () => {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="list" element={<ListPage/>}/>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
