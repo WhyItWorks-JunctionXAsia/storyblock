@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Area = styled.div`
   display: flex;
-  jusify-content: center;
+  justify-content: center;
   width: 100%;
 `;
 
