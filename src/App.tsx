@@ -18,48 +18,9 @@ declare global {
 
 const App: React.FC = () => {
 
-    const setUpdateAccountAddressAtom = useUpdateAtom(accountAddressAtom);
+    useWallet(window);
 
-   useEffect(() => {
-    const onLoad = async () => {
-        {
-            const walletAddressDTO : WalletAddressType = await useWallet(window);
 
-            const {walletAddress} = walletAddressDTO
-
-            await setUpdateAccountAddressAtom(walletAddress)
-
-      //   const cosmJS = new SigningCosmosClient(
-      //     `${BASE_URL}:${REST_PORT}`,
-      //     myAccount.address,
-      //     offlineSigner
-      //   );
-      //   const client = await StargateClient.connect(`${BASE_URL}:${RPC_PORT}`);
-      //
-      //   console.log(client.getAllBalances(myAccount.address));
-      //
-      //   const result = await signingClient.signAndBroadcast(
-      //     myAccount.address,
-      //     [
-      //       {
-      //         typeUrl: "/cosmos.bank.v1beta1.MsgSend",
-      //         value: {
-      //           fromAddress: myAccount.address,
-      //           toAddress: "cosmos1ty0c0awksamguee7zgat6q864gtgf2v398a8jc",
-      //           amount: [{ denom: "uatom", amount: "500" }],
-      //         },
-      //       },
-      //     ],
-      //     {
-      //       amount: [{ denom: "uatom", amount: "500" }],
-      //       gas: "200000",
-      //     }
-      //   );
-      //   console.log(result);
-       }
-    }
-    onLoad();
-  }, []);
 
   return (
       <>
