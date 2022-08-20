@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination } from "swiper";
 
@@ -6,53 +6,38 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import "./style/MyStorySwiper.style.css";
+import StoryCard from "./StoryCard";
 
 const MyStorySwiper: React.FC = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {}, [current]);
+
   return (
     <Swiper
+      slidesPerView={3}
       effect={"coverflow"}
+      autoHeight={true}
       grabCursor={true}
       centeredSlides={true}
-      slidesPerView={"auto"}
       coverflowEffect={{
-        rotate: 20,
+        rotate: 0,
         stretch: 0,
-        depth: 100,
+        depth: 200,
         modifier: 1,
-        slideShadows: true,
+        slideShadows: false,
       }}
-      pagination={true}
       modules={[EffectCoverflow, Pagination]}
+      onActiveIndexChange={(swiper) => {
+        setCurrent(swiper.activeIndex);
+      }}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-      </SwiperSlide>
+      {[...Array(5).keys()].map((number) => (
+        <SwiperSlide key={number}>
+          <StoryCard current={current === number} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

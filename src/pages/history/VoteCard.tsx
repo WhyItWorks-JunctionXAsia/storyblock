@@ -57,6 +57,7 @@ const VoteCard: React.FC = () => {
         </FlexContainer>
 
         <Button
+          hoverBackground="rgba(126, 146, 255, 0.15)"
           style={{
             position: "absolute",
             right: "0",
@@ -65,6 +66,7 @@ const VoteCard: React.FC = () => {
             height: "40px",
             border: "1px solid #7E92FF",
             borderRadius: "20px",
+            transition: "all 0.3s ease",
           }}
         >
           <FlexContainer

@@ -8,7 +8,8 @@ const HeaderButton = styled.div<{ background?: string }>`
   width: 200px;
   height: 57px;
   border-radius: 28.5px;
-  background-color: ${({ background }) => background || "#F3F3F3"};
+  background-color: ${({ background }) =>
+    background || colorset.background.lightGray};
   font-family: ${fontFamily.jua};
   font-size: ${fontSize.lg};
 

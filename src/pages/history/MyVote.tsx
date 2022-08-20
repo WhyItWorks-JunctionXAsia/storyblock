@@ -1,18 +1,17 @@
 import React from "react";
 import Area from "components/Area";
-import ContentArea from "components/ContentArea";
-import Text from "components/Text";
-import VoteCard from "./VoteCard";
-import FlexContainer from "components/FlexContainer";
 import Button from "components/Button";
+import ContentArea from "components/ContentArea";
+import FlexContainer from "components/FlexContainer";
+import Text from "components/Text";
+import VoteCard from "pages/history/VoteCard";
 import { colorset } from "utils/styles";
 
 const MyVote: React.FC = () => {
   return (
     <Area>
       <ContentArea style={{ padding: "50px" }}>
-        <Text style={{ marginBottom: "30px", fontSize: "30px" }}>MY VOTE</Text>
-
+        <Text style={{ marginBottom: "30px", fontSize: "30px" }}>MY VOTE</Text>-
         <div
           style={{
             display: "grid",
@@ -26,17 +25,18 @@ const MyVote: React.FC = () => {
           <VoteCard />
           <VoteCard />
         </div>
-
         <FlexContainer justifyContent="center">
           <Button
+            background={colorset.white}
+            hoverBackground={colorset.primary}
             style={{
               width: "120px",
               height: "50px",
               borderRadius: "25px",
-              background: colorset.white,
+              transition: "all 0.3s ease",
             }}
           >
-            <Text>MORE</Text>
+            <Text size="ml">MORE</Text>
           </Button>
         </FlexContainer>
       </ContentArea>
