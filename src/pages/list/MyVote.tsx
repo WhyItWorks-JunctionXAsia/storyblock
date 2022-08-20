@@ -4,7 +4,7 @@ import Button from "components/Button";
 import ContentArea from "components/ContentArea";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
-import VoteCard from "pages/history/VoteCard";
+import VoteCard from "pages/list/VoteCard";
 import { colorset } from "utils/styles";
 
 const MyVote: React.FC = () => {

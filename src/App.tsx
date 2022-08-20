@@ -1,17 +1,15 @@
-import React, {useEffect, useState} from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { SigningCosmosClient } from "@cosmjs/launchpad";
-import { Window as KeplrWindow } from "@keplr-wallet/types";
-import { StargateClient } from "@cosmjs/stargate";
+import React, {useEffect} from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {Window as KeplrWindow} from "@keplr-wallet/types";
 import Layout from "layout/Layout";
 import HomePage from "pages/home/HomePage";
-import HistoryPage from "pages/history/HistoryPage";
-import ListPage from "./pages/list/ListPage";
-import {useAtom, useAtomValue} from "jotai";
+import ListPage from "pages/list/ListPage";
+import DetailPage from "./pages/detail/DetailPage";
 import {accountAddressAtom} from "atom";
 import {useUpdateAtom} from "jotai/utils";
 import {useWallet} from "./utils/hooks";
 import {WalletAddressType} from "./types/wallet.type";
+
 declare global {
   interface Window extends KeplrWindow {}
 }
@@ -66,8 +64,8 @@ const App: React.FC = () => {
         <Routes>
             <Route element={<Layout/>}>
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/history" element={<HistoryPage />}/>
-                <Route path="list" element={<ListPage/>}/>
+                <Route path="/list" element={<ListPage />}/>
+                <Route path="detail" element={<DetailPage/>}/>
                 <Route path="*" element={<Navigate to="/" replace/>}/>
             </Route>
         </Routes>

@@ -5,7 +5,7 @@ import Button from "components/Button";
 import ContentArea from "components/ContentArea";
 import FlexContainer from "components/FlexContainer";
 import HeaderButton from "layout/HeaderButton";
-import { colorset } from "utils/styles";
+import { colorset, fontFamily, fontSize } from "utils/styles";
 import search from "assets/icons/search-black.svg";
 import storyblockLogo from "assets/images/storyblock-logo.png";
 
@@ -31,7 +31,7 @@ const Header: React.FC = () => {
         >
           <img src={storyblockLogo} />
 
-          <FlexContainer alignItems="center" gap="0 30px">
+          <FlexContainer alignItems="center" gap="0 20px">
             <HeaderButton
               onClick={() => {
                 navigate("/");
@@ -52,17 +52,6 @@ const Header: React.FC = () => {
 
             <HeaderButton
               onClick={() => {
-                navigate("/history");
-              }}
-              background={
-                selected === "/history" ? colorset.primary : undefined
-              }
-            >
-              HISTORY
-            </HeaderButton>
-
-            <HeaderButton
-              onClick={() => {
                 navigate("/account");
               }}
               background={selected == "/account" ? colorset.primary : undefined}
@@ -71,9 +60,25 @@ const Header: React.FC = () => {
             </HeaderButton>
           </FlexContainer>
 
-          <Button>
-            <img src={search} width="36px" />
-          </Button>
+          <FlexContainer alignItems="center" gap="0 20px">
+            <Button
+              style={{
+                width: "250px",
+                height: "57px",
+                borderRadius: "28.5px",
+                background: "#2D3362",
+                color: colorset.white,
+                fontFamily: fontFamily.jua,
+                fontSize: fontSize.lg,
+              }}
+            >
+              CONNECT WALLET
+            </Button>
+
+            <Button>
+              <img src={search} width="36px" />
+            </Button>
+          </FlexContainer>
         </ContentArea>
       </Area>
     </header>

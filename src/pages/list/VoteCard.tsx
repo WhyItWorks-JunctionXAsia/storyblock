@@ -5,7 +5,6 @@ import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import caretDown from "assets/icons/caret-down-filled.svg";
 import caretUp from "assets/icons/caret-up-filled.svg";
-import checkBlue from "assets/icons/check-blue.svg";
 import coverSample from "assets/images/cover-sample.jpg";
 
 const VoteCard: React.FC = () => {
