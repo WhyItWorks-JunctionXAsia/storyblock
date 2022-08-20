@@ -10,10 +10,10 @@ const MyStory: React.FC = () => {
       <Area>
         <ContentArea style={{ paddingTop: "50px" }}>
           <Text style={{ fontSize: "30px" }}>MY STORY</Text>
+
+          <MyStorySwiper />
         </ContentArea>
       </Area>
-
-      <MyStorySwiper />
     </>
   );
 };

@@ -3,10 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Area from "components/Area";
 import Button from "components/Button";
 import ContentArea from "components/ContentArea";
+import FlexContainer from "components/FlexContainer";
 import HeaderButton from "layout/HeaderButton";
 import { colorset } from "utils/styles";
-import storyblockLogo from "assets/storyblock-logo.png";
-import search from "assets/search-black.svg";
+import search from "assets/icons/search-black.svg";
+import storyblockLogo from "assets/images/storyblock-logo.png";
 
 const Header: React.FC = () => {
   const [selected, setSelected] = useState("/");
@@ -30,7 +31,7 @@ const Header: React.FC = () => {
         >
           <img src={storyblockLogo} />
 
-          <div style={{ display: "flex", alignItems: "center", gap: "0 30px" }}>
+          <FlexContainer alignItems="center" gap="0 30px">
             <HeaderButton
               onClick={() => {
                 navigate("/");
@@ -39,6 +40,7 @@ const Header: React.FC = () => {
             >
               HOME
             </HeaderButton>
+
             <HeaderButton
               onClick={() => {
                 navigate("/list");
@@ -47,6 +49,7 @@ const Header: React.FC = () => {
             >
               LIST
             </HeaderButton>
+
             <HeaderButton
               onClick={() => {
                 navigate("/history");
@@ -57,6 +60,7 @@ const Header: React.FC = () => {
             >
               HISTORY
             </HeaderButton>
+
             <HeaderButton
               onClick={() => {
                 navigate("/account");
@@ -65,7 +69,7 @@ const Header: React.FC = () => {
             >
               ACCOUNT
             </HeaderButton>
-          </div>
+          </FlexContainer>
 
           <Button>
             <img src={search} width="36px" />
