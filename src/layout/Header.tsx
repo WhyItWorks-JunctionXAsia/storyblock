@@ -87,21 +87,39 @@ const Header: React.FC = () => {
           </FlexContainer>
 
           <FlexContainer alignItems="center" gap="0 20px">
-            <Button
-              style={{
-                width: "250px",
-                height: "57px",
-                borderRadius: "28.5px",
-                background: "#2D3362",
-                color: colorset.white,
-                fontFamily: fontFamily.jua,
-                fontSize: fontSize.lg,
-              }}
-              onClick={event => {onClickHandler()}}
-            >
-              CONNECT WALLET
-            </Button>
+              { (accountAddress===undefined)?(
+                  <Button
+                      style={{
+                          width: "250px",
+                          height: "57px",
+                          borderRadius: "28.5px",
+                          background: "#2D3362",
+                          color: colorset.white,
+                          fontFamily: fontFamily.jua,
+                          fontSize: fontSize.lg,
+                      }}
+                      onClick={event => {
+                          onClickHandler()
+                      }}
+                  >
+                      CONNECT WALLET
+                  </Button>) : (
 
+                  <Button
+                  style={{
+                  width: "250px",
+                  height: "57px",
+                  borderRadius: "28.5px",
+                  background: "white",
+                  border:'2px solid gray',
+                  color: colorset.text,
+                  fontFamily: fontFamily.jua,
+                  fontSize: fontSize.lg,
+              }}
+                  >
+                      {accountAddress.substring(0,15)+"..."}
+                  </Button>)
+              }
             <Button>
               <img src={search} width="36px" />
             </Button>
