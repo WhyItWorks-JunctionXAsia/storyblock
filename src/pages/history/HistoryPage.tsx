@@ -1,15 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import MyStory from "pages/history/MyStory";
 import HistoryBackground from "pages/history/HistoryBackground";
 import MyVote from "pages/history/MyVote";
-import {useAtomValue} from "jotai";
+import {useAtom, useAtomValue} from "jotai";
 import {accountAddressAtom} from "../../atom";
+import {WalletAddressType} from "../../types/wallet.type";
+import {useWallet} from "../../utils/hooks";
 
 
 const HistoryPage: React.FC = () => {
 
+  const [accountAddress, setAccountAddtess] = useAtom(accountAddressAtom)
 
-    const accountAddress = useAtomValue(accountAddressAtom);
+  useEffect(() => {
+    if(accountAddress===undefined) {
+      alert('connect the wallet first')
+      window.location.replace('/')
+    }
+  }, []);
+
 
   return (
     <>

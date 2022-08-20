@@ -10,6 +10,8 @@ import ListPage from "./pages/list/ListPage";
 import {useAtom, useAtomValue} from "jotai";
 import {accountAddressAtom} from "atom";
 import {useUpdateAtom} from "jotai/utils";
+import {useWallet} from "./utils/hooks";
+import {WalletAddressType} from "./types/wallet.type";
 declare global {
   interface Window extends KeplrWindow {}
 }
@@ -20,16 +22,12 @@ const App: React.FC = () => {
 
    useEffect(() => {
     const onLoad = async () => {
-      if (!window.keplr) {
-        alert("Please install keplr extension");
-      } else {
-        const chainId = "cosmoshub-4";
-        await window.keplr.enable(chainId);
+        {
+            const walletAddressDTO : WalletAddressType = await useWallet(window);
 
-        const offlineSigner = window.keplr.getOfflineSigner(chainId);
-        const accounts = await offlineSigner.getAccounts();
-        const myAccount = accounts[0];
-        await setUpdateAccountAddressAtom(myAccount.address);
+            const {walletAddress} = walletAddressDTO
+
+            await setUpdateAccountAddressAtom(walletAddress)
 
       //   const cosmJS = new SigningCosmosClient(
       //     `${BASE_URL}:${REST_PORT}`,
