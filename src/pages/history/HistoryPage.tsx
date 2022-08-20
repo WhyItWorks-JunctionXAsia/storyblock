@@ -2,7 +2,7 @@ import React from "react";
 import MyStory from "./MyStory";
 
 const HistoryPage: React.FC = () => {
-    return <MyStory/>;
+  return <MyStory />;
 };
 
 export default HistoryPage;

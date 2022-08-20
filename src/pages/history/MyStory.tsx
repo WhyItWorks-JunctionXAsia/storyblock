@@ -1,19 +1,21 @@
+import Area from "components/Area";
+import ContentArea from "components/ContentArea";
+import Text from "components/Text";
 import React from "react";
 import MyStorySwiper from "./MyStorySwiper";
 
-
-
-
-
 const MyStory: React.FC = () => {
-    return (
-        <div style={{display:"flex", flexDirection:"column"}}>
-            <div style={{display:"flex", flexDirection:"row", justifyContent:"flex-start"}}>
-                My Story
-            </div>
-            <MyStorySwiper></MyStorySwiper>
-        </div>
-    );
-}
+  return (
+    <>
+      <Area>
+        <ContentArea style={{ paddingTop: "50px" }}>
+          <Text style={{ fontSize: "30px" }}>MY STORY</Text>
+        </ContentArea>
+      </Area>
+
+      <MyStorySwiper />
+    </>
+  );
+};
 
 export default MyStory;
