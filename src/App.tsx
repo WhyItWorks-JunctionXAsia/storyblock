@@ -7,13 +7,16 @@ import Layout from "layout/Layout";
 import HomePage from "pages/home/HomePage";
 import HistoryPage from "pages/history/HistoryPage";
 import ListPage from "./pages/list/ListPage";
+import {useAtom, useAtomValue} from "jotai";
+import {accountAddressAtom} from "atom";
+import {useUpdateAtom} from "jotai/utils";
 declare global {
   interface Window extends KeplrWindow {}
 }
 
 const App: React.FC = () => {
 
-    const [accountAddress , setAccountAddress] = useState<string|undefined>(undefined)
+    const setUpdateAccountAddressAtom = useUpdateAtom(accountAddressAtom);
 
    useEffect(() => {
     const onLoad = async () => {
@@ -26,7 +29,7 @@ const App: React.FC = () => {
         const offlineSigner = window.keplr.getOfflineSigner(chainId);
         const accounts = await offlineSigner.getAccounts();
         const myAccount = accounts[0];
-        await setAccountAddress(myAccount.address);
+        await setUpdateAccountAddressAtom(myAccount.address);
 
       //   const cosmJS = new SigningCosmosClient(
       //     `${BASE_URL}:${REST_PORT}`,
