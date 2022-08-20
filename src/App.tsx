@@ -5,6 +5,7 @@ import { Window as KeplrWindow } from "@keplr-wallet/types";
 import { StargateClient } from "@cosmjs/stargate";
 import Layout from "layout/Layout";
 import HomePage from "pages/home/HomePage";
+import HistoryPage from "pages/history/HistoryPage";
 declare global {
   interface Window extends KeplrWindow {}
 }
@@ -59,6 +60,7 @@ const App: React.FC = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/history" element={<HistoryPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
