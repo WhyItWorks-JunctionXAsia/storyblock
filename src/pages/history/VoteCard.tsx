@@ -57,26 +57,17 @@ const VoteCard: React.FC = () => {
         </FlexContainer>
 
         <Button
-          hoverBackground="rgba(126, 146, 255, 0.15)"
           style={{
             position: "absolute",
             right: "0",
             bottom: "0",
             width: "110px",
             height: "40px",
-            border: "1px solid #7E92FF",
+            background: colorset.background.lightGray,
             borderRadius: "20px",
-            transition: "all 0.3s ease",
           }}
         >
-          <FlexContainer
-            justifyContent="center"
-            alignItems="center"
-            gap="8px 8px"
-          >
-            <Text color="#7E92FF">VOTE</Text>
-            <img src={checkBlue} width="22px" />
-          </FlexContainer>
+            <Text color="#C4C4C4">VOTED</Text>
         </Button>
       </div>
     </FlexContainer>

@@ -66,22 +66,10 @@ const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
           borderRadius: "25px",
         }}
       >
-        <FlexContainer
-          justifyContent="center"
-          alignItems="center"
-          gap="8px 8px"
-        >
+
           <Text size="ml" color={current ? colorset.text : "#737373"}>
-            WRITE
+            VIEW
           </Text>
-          <img
-            src={pencil}
-            width="20px"
-            style={{
-              opacity: current ? 1 : 0.6,
-            }}
-          />
-        </FlexContainer>
       </Button>
     </FlexContainer>
   );
