@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { SigningCosmosClient } from "@cosmjs/launchpad";
 import { Window as KeplrWindow } from "@keplr-wallet/types";
 import { StargateClient } from "@cosmjs/stargate";
+import Layout from "layout/Layout";
+import HomePage from "pages/home/HomePage";
 declare global {
   interface Window extends KeplrWindow {}
 }
@@ -52,7 +55,14 @@ const App: React.FC = () => {
     onLoad();
   }, []); */
 
-  return <div />;
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
