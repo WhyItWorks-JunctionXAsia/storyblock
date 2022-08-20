@@ -8,6 +8,8 @@ import HeaderButton from "layout/HeaderButton";
 import { colorset, fontFamily, fontSize } from "utils/styles";
 import search from "assets/icons/search-black.svg";
 import storyblockLogo from "assets/images/storyblock-logo.png";
+import {useAtom} from "jotai";
+import {accountAddressAtom} from "../atom";
 
 const Header: React.FC = () => {
   const [selected, setSelected] = useState("/");
@@ -17,6 +19,30 @@ const Header: React.FC = () => {
   useEffect(() => {
     setSelected(pathname);
   }, [pathname]);
+
+    const [accountAddress, setAccountAddress] = useAtom(accountAddressAtom)
+
+  const onClickHandler = async() => {
+      if (!window.keplr) {
+          alert("Please install keplr extension");
+      } else {
+          try{
+              const chainId = "cosmoshub-4";
+              await window.keplr.enable(chainId);
+
+              const offlineSigner = window.keplr.getOfflineSigner(chainId);
+              const accounts = await offlineSigner.getAccounts();
+              const myAccount = accounts[0];
+
+              if(myAccount.address !== undefined){
+                  await setAccountAddress(myAccount.address)
+              }
+          }catch (e){
+              alert("login failed");
+          }
+      }
+
+  }
 
   return (
     <header>
@@ -71,6 +97,7 @@ const Header: React.FC = () => {
                 fontFamily: fontFamily.jua,
                 fontSize: fontSize.lg,
               }}
+              onClick={event => {onClickHandler()}}
             >
               CONNECT WALLET
             </Button>
