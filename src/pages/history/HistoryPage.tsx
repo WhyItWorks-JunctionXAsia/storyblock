@@ -1,11 +1,11 @@
 import React from "react";
 import MyStory from "./MyStory";
-import Background from "./background";
+import HistoryBackground from "./HistoryBackground";
 
 const HistoryPage: React.FC = () => {
   return (
     <>
-      <Background />
+      <HistoryBackground />
       <MyStory />
     </>
   );
