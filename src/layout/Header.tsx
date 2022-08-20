@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Area from "components/Area";
+import Button from "components/Button";
 import ContentArea from "components/ContentArea";
 import HeaderButton from "layout/HeaderButton";
 import { colorset } from "utils/styles";
@@ -10,6 +11,7 @@ import search from "assets/search-black.svg";
 const Header: React.FC = () => {
   const [selected, setSelected] = useState("/");
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setSelected(pathname);
@@ -30,38 +32,44 @@ const Header: React.FC = () => {
 
           <div style={{ display: "flex", alignItems: "center", gap: "0 30px" }}>
             <HeaderButton
-              style={{
-                background: selected === "/" ? colorset.primary : undefined,
+              onClick={() => {
+                navigate("/");
               }}
+              background={selected === "/" ? colorset.primary : undefined}
             >
               HOME
             </HeaderButton>
             <HeaderButton
-              style={{
-                background: selected === "/list" ? colorset.primary : undefined,
+              onClick={() => {
+                navigate("/list");
               }}
+              background={selected === "/list" ? colorset.primary : undefined}
             >
               LIST
             </HeaderButton>
             <HeaderButton
-              style={{
-                background:
-                  selected === "/history" ? colorset.primary : undefined,
+              onClick={() => {
+                navigate("/history");
               }}
+              background={
+                selected === "/history" ? colorset.primary : undefined
+              }
             >
               HISTORY
             </HeaderButton>
             <HeaderButton
-              style={{
-                background:
-                  selected === "/account" ? colorset.primary : undefined,
+              onClick={() => {
+                navigate("/account");
               }}
+              background={selected == "/account" ? colorset.primary : undefined}
             >
               ACCOUNT
             </HeaderButton>
           </div>
 
-          <img src={search} width="36px" />
+          <Button>
+            <img src={search} width="36px" />
+          </Button>
         </ContentArea>
       </Area>
     </header>
