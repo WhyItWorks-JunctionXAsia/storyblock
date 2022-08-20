@@ -52,17 +52,6 @@ const Header: React.FC = () => {
 
             <HeaderButton
               onClick={() => {
-                navigate("/history");
-              }}
-              background={
-                selected === "/history" ? colorset.primary : undefined
-              }
-            >
-              HISTORY
-            </HeaderButton>
-
-            <HeaderButton
-              onClick={() => {
                 navigate("/account");
               }}
               background={selected == "/account" ? colorset.primary : undefined}
