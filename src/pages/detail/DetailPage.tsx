@@ -7,7 +7,7 @@ import Text from "components/Text";
 import StoryTree from "pages/detail/StoryTree";
 import { colorset } from "utils/styles";
 import pencil from "assets/icons/pencil-fill.svg";
-import background from "assets/images/listpage-background.png";
+import background from "assets/images/detailpage-background.png";
 
 const DetailPage: React.FC = () => {
   return (
