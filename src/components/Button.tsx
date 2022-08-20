@@ -13,7 +13,8 @@ const Button = styled.button<ButtonProps>`
 
   :hover {
     cursor: pointer;
-    background: ${({ hoverBackground }) => hoverBackground || "transparent"};
+    background: ${({ background, hoverBackground }) =>
+      hoverBackground || background || "transparent"};
   }
 `;
 
