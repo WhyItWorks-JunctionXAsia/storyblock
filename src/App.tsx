@@ -1,15 +1,23 @@
 import React, { useEffect } from "react";
 import { BroadcastMode, SigningCosmosClient } from "@cosmjs/launchpad";
 import { Window as KeplrWindow } from "@keplr-wallet/types";
-import { Tx } from "cosmjs-types/cosmos/tx/v1beta1/tx";
-import { StargateClient } from "@cosmjs/stargate";
+import {
+  GasPrice,
+  SigningStargateClient,
+  StargateClient,
+} from "@cosmjs/stargate";
+import {
+  DirectSecp256k1HdWallet,
+  OfflineDirectSigner,
+} from "@cosmjs/proto-signing";
+import { Decimal } from "@cosmjs/math";
 
 declare global {
   interface Window extends KeplrWindow {}
 }
 
 const App: React.FC = () => {
-  const RPC = "http://172.19.250.237:26657/";
+  const RPC = "http://172.20.10.4:26657/";
 
   useEffect(() => {
     const onLoad = async () => {
@@ -30,23 +38,48 @@ const App: React.FC = () => {
         // But, currently, Keplr extension manages only one address/public key pair.
         // XXX: This line is needed to set the sender address for SigningCosmosClient.
         const accounts = await offlineSigner.getAccounts();
-        console.log(accounts[0]);
+        const myAccount = accounts[0];
 
         // Initialize the gaia api with the offline signer that is injected by Keplr extension.
         const cosmJS = new SigningCosmosClient(
-          "http://172.19.250.237:1317/",
-          accounts[0].address,
+          "http://172.20.10.4:1317/",
+          myAccount.address,
           offlineSigner
         );
         const client = await StargateClient.connect(RPC);
-        console.log(
-          "With client, chain id:",
-          await client.getChainId(),
-          ", height:",
-          await client.getHeight()
+        const mySigner: OfflineDirectSigner =
+          await DirectSecp256k1HdWallet.fromMnemonic(
+            "mushroom report thing table domain away promote west cupboard pony ask judge",
+            {
+              prefix: "blog",
+            }
+          );
+        const signingClient = await SigningStargateClient.connectWithSigner(
+          RPC,
+          mySigner,
+          {
+            gasPrice: new GasPrice(Decimal.constructor(), "uatom"),
+          }
         );
-
-        window.keplr.sendTx(chainId, new Uint8Array(), BroadcastMode.Block);
+        console.log(signingClient.getAllBalances(myAccount.address));
+        const result = await signingClient.signAndBroadcast(
+          myAccount.address,
+          [
+            {
+              typeUrl: "/cosmos.bank.v1beta1.MsgSend",
+              value: {
+                fromAddress: myAccount.address,
+                toAddress: "cosmos1ty0c0awksamguee7zgat6q864gtgf2v398a8jc",
+                amount: [{ denom: "uatom", amount: "500" }],
+              },
+            },
+          ],
+          {
+            amount: [{ denom: "uatom", amount: "500" }],
+            gas: "200000",
+          }
+        );
+        console.log(result);
       }
     };
 
