@@ -4,6 +4,7 @@ export const colorset = {
   primary: "#F9EADC",
   text: "#000000",
   line: "#707070",
+  white: "#FFFFFF",
 };
 
 export const CONTENT_AREA_DESKTOP = "75%";
