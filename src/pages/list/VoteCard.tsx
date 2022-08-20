@@ -5,7 +5,7 @@ import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import caretDown from "assets/icons/caret-down-filled.svg";
 import caretUp from "assets/icons/caret-up-filled.svg";
-import coverSample from "assets/images/cover-sample.jpg";
+import coverSample1 from "assets/images/cover-sample-1.jpg";
 
 const VoteCard: React.FC = () => {
   const [up, setUp] = useState(true);
@@ -21,7 +21,7 @@ const VoteCard: React.FC = () => {
       }}
     >
       <img
-        src={coverSample}
+        src={coverSample1}
         width="150px"
         height="150px"
         style={{ objectFit: "cover", objectPosition: "center center" }}

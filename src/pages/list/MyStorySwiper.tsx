@@ -35,7 +35,7 @@ const MyStorySwiper: React.FC = () => {
     >
       {[...Array(5).keys()].map((number) => (
         <SwiperSlide key={number}>
-          <StoryCard current={current === number} />
+          <StoryCard current={current === number} current_number = {number}/>
         </SwiperSlide>
       ))}
     </Swiper>
