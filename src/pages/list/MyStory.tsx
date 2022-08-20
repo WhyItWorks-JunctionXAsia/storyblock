@@ -8,7 +8,7 @@ const MyStory: React.FC = () => {
   return (
     <Area>
       <ContentArea style={{ padding: "50px" }}>
-        <Text style={{ fontSize: "30px" }}>MY STORY</Text>
+        <Text style={{ fontSize: "30px" }}>MY BOOK</Text>
 
         <MyStorySwiper />
       </ContentArea>

@@ -25,7 +25,7 @@ const BackgroundPink = styled.div`
   z-index: -1;
 `;
 
-const HistoryBackground: React.FC = () => {
+const ListBackground: React.FC = () => {
   return (
     <>
       <BackgroundYellow />
@@ -34,4 +34,4 @@ const HistoryBackground: React.FC = () => {
   );
 };
 
-export default HistoryBackground;
+export default ListBackground;

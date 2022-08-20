@@ -1,6 +1,6 @@
 import React from "react";
-import Story from "pages/list/Story";
-import StoryLine from "pages/list/StoryLine";
+import Story from "pages/detail/Story";
+import StoryLine from "pages/detail/StoryLine";
 
 const StoryTree: React.FC = () => {
   return (
