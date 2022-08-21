@@ -53,7 +53,7 @@ const DetailPage: React.FC = () => {
             A POLITICAL MARRIAGE
           </Text>
           <Text size="lg" textAlign="center" style={{ marginBottom: "80px" }}>
-            STORY HEIGHT: 5
+            STORY HEIGHT: 3
           </Text>
 
           <StoryTree stories={stories} rerender={handleRerender} />
