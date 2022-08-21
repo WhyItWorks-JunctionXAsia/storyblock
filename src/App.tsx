@@ -10,6 +10,7 @@ import { useUpdateAtom } from "jotai/utils";
 import { useWallet } from "./utils/hooks";
 import { WalletAddressType } from "./types/wallet.type";
 import { getStories } from "utils/api";
+import AccountPage from "./pages/account/AccountPage";
 
 declare global {
   interface Window extends KeplrWindow {}
@@ -33,6 +34,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/list" element={<ListPage />} />
           <Route path="/details" element={<DetailPage />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
