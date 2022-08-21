@@ -64,3 +64,9 @@ export interface GetVotesResp {
   book: Book;
   Vote: Vote[];
 }
+
+export interface VoteRegi {
+  target: "Vote";
+  keplrAddress: string;
+  storyId: string;
+}

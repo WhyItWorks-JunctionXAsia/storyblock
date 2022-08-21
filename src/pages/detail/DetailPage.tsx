@@ -14,6 +14,7 @@ import { heightCompare } from "utils/utils";
 
 const DetailPage: React.FC = () => {
   const [stories, setStories] = useState<Story[]>([]);
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -25,7 +26,11 @@ const DetailPage: React.FC = () => {
     };
 
     fetchStories();
-  }, []);
+  }, [rerender]);
+
+  const handleRerender = () => {
+    setRerender((prev) => !prev);
+  };
 
   return (
     <Area>
@@ -51,7 +56,7 @@ const DetailPage: React.FC = () => {
             STORY HEIGHT: 5
           </Text>
 
-          <StoryTree stories={stories} />
+          <StoryTree stories={stories} rerender={handleRerender} />
 
           <FlexContainer
             justifyContent="flex-end"

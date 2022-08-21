@@ -6,6 +6,7 @@ import {
   GetStoriesResp,
   GetVotesResp,
   StoryRegi,
+  VoteRegi,
 } from "utils/types";
 
 export const getBooks = async () => {
@@ -50,5 +51,11 @@ export const getVotes = async (bookId: string) => {
     const { data } = response;
 
     return data;
+  } catch (error) {}
+};
+
+export const vote = async (voteData: VoteRegi) => {
+  try {
+    await axios.post(`${BASE_URL}:${POST_PORT}`, voteData);
   } catch (error) {}
 };

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Story from "pages/detail/Story";
 import StoryLine from "pages/detail/StoryLine";
 import { Story as StoryType, Vote } from "utils/types";
@@ -8,9 +8,10 @@ import FlexContainer from "components/FlexContainer";
 
 interface StoryTreeProps {
   stories: StoryType[];
+  rerender: () => void;
 }
 
-const StoryTree: React.FC<StoryTreeProps> = ({ stories }) => {
+const StoryTree: React.FC<StoryTreeProps> = ({ stories, rerender }) => {
   const [votes, setVotes] = useState<Vote[]>([]);
   const [sortedStories, setSortedStories] = useState<Array<StoryType[]>>([]);
 
@@ -96,6 +97,7 @@ const StoryTree: React.FC<StoryTreeProps> = ({ stories }) => {
                   story={storiesWithSameHeight[0]}
                   type={storyState.selected}
                   height={0}
+                  rerender={rerender}
                 />
                 <div />
               </>
@@ -113,6 +115,7 @@ const StoryTree: React.FC<StoryTreeProps> = ({ stories }) => {
                       : storyState.failed
                   }
                   height={height}
+                  rerender={rerender}
                   key={index}
                 />
               ))
