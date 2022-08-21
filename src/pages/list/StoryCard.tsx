@@ -4,15 +4,27 @@ import Button from "components/Button";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import { colorset } from "utils/styles";
+<<<<<<< HEAD:src/pages/list/StoryCard.tsx
 import coverSample from "assets/images/cover-sample.jpg";
+=======
+
+import {coverSampleArray} from "../../types/constant";
+
+
+>>>>>>> main:src/pages/detail/StoryCard.tsx
 
 interface StoryCardProps {
   current: boolean;
+  current_number : number;
 }
 
+<<<<<<< HEAD:src/pages/list/StoryCard.tsx
 const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
   const navigate = useNavigate();
 
+=======
+const StoryCard: React.FC<StoryCardProps> = ({ current , current_number }) => {
+>>>>>>> main:src/pages/detail/StoryCard.tsx
   return (
     <FlexContainer
       flexDirection="column"
@@ -32,7 +44,7 @@ const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
       }}
     >
       <img
-        src={coverSample}
+        src={coverSampleArray[current_number]}
         width="320px"
         height="320px"
         style={{
