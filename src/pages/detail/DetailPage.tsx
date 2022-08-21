@@ -38,8 +38,20 @@ const DetailPage: React.FC = () => {
 
           <FlexContainer
             justifyContent="flex-end"
+            gap="0 20px"
             style={{ marginTop: "50px" }}
           >
+            <Button
+              style={{
+                width: "110px",
+                height: "40px",
+                background: colorset.primary,
+                borderRadius: "20px",
+              }}
+            >
+              <Text>READ ALL</Text>
+            </Button>
+
             <Button
               style={{
                 width: "110px",

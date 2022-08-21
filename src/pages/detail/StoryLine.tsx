@@ -71,7 +71,6 @@ const StoryLine: React.FC<StoryLineProps> = ({ upperline, underline }) => {
             if (index === underSelected) {
               canvas.lineTo(xPos[index], 0);
             } else if (index > underSelected) {
-              console.log("here");
               rightBranch(canvas, index);
             } else {
               leftBranch(canvas, index);

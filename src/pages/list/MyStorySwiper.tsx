@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import StoryCard from "../detail/StoryCard";
+import StoryCard from "./StoryCard";
 
 const MyStorySwiper: React.FC = () => {
   const [current, setCurrent] = useState(0);
