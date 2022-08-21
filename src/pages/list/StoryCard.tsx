@@ -3,28 +3,17 @@ import { useNavigate } from "react-router-dom";
 import Button from "components/Button";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
+import { coverSampleArray } from "types/constant";
 import { colorset } from "utils/styles";
-<<<<<<< HEAD:src/pages/list/StoryCard.tsx
-import coverSample from "assets/images/cover-sample.jpg";
-=======
-
-import {coverSampleArray} from "../../types/constant";
-
-
->>>>>>> main:src/pages/detail/StoryCard.tsx
 
 interface StoryCardProps {
   current: boolean;
-  current_number : number;
+  current_number: number;
 }
 
-<<<<<<< HEAD:src/pages/list/StoryCard.tsx
-const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
+const StoryCard: React.FC<StoryCardProps> = ({ current, current_number }) => {
   const navigate = useNavigate();
 
-=======
-const StoryCard: React.FC<StoryCardProps> = ({ current , current_number }) => {
->>>>>>> main:src/pages/detail/StoryCard.tsx
   return (
     <FlexContainer
       flexDirection="column"
