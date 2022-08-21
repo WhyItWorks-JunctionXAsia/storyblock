@@ -56,6 +56,6 @@ export const getVotes = async (bookId: string) => {
 
 export const vote = async (voteData: VoteRegi) => {
   try {
-    await axios.post(`${BASE_URL}:${POST_PORT}`, voteData);
+    await axios.post(`http://localhost:${POST_PORT}`, voteData);
   } catch (error) {}
 };

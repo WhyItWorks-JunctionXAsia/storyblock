@@ -17,7 +17,7 @@ const VoteTextArea = styled.div`
   flex-wrap: wrap;
   overflow-y: scroll;
   width: 95%;
-  height: 500px;
+  height: 300px;
   word-break: break-all;
   margin: 20px auto;
 
