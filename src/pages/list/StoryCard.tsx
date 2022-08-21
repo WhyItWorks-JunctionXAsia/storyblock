@@ -5,13 +5,15 @@ import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import { coverSampleArray } from "types/constant";
 import { colorset } from "utils/styles";
+import {Book} from "../../utils/types";
 
 interface StoryCardProps {
   current: boolean;
   current_number: number;
+  book: Book
 }
 
-const StoryCard: React.FC<StoryCardProps> = ({ current, current_number }) => {
+const StoryCard: React.FC<StoryCardProps> = ({ book,current, current_number }) => {
   const navigate = useNavigate();
 
   return (
