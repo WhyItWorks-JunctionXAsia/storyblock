@@ -6,13 +6,15 @@ import { StoryState, storyState } from "utils/utils";
 import iconX from "assets/icons/story-icon-x.png";
 import iconV from "assets/icons/story-icon-v.png";
 import iconW from "assets/icons/story-icon-wave.png";
+import { Story as StoryType } from "utils/types";
 
 interface StoryProps {
   type: StoryState;
+  story: StoryType;
   height: number;
 }
 
-const Story: React.FC<StoryProps> = ({ type, height }) => {
+const Story: React.FC<StoryProps> = ({ type, story, height }) => {
   return (
     <FlexContainer
       style={{
@@ -77,7 +79,7 @@ const Story: React.FC<StoryProps> = ({ type, height }) => {
             whiteSpace: "nowrap",
           }}
         >
-          TITLE COMES HERE ASDSADADSWSAD
+          {story.title.toLocaleUpperCase()}
         </Text>
 
         <Text
@@ -88,7 +90,7 @@ const Story: React.FC<StoryProps> = ({ type, height }) => {
             whiteSpace: "nowrap",
           }}
         >
-          COSMOSd3...as93
+          {story.keplr}
         </Text>
       </div>
     </FlexContainer>

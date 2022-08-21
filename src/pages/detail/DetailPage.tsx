@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Area from "components/Area";
 import Button from "components/Button";
 import ContentArea from "components/ContentArea";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import StoryTree from "pages/detail/StoryTree";
+import { getStories } from "utils/api";
+import { Story } from "utils/types";
 import { colorset } from "utils/styles";
 import pencil from "assets/icons/pencil-fill.svg";
 import background from "assets/images/detailpage-background.png";
+import { heightCompare } from "utils/utils";
 
 const DetailPage: React.FC = () => {
+  const [stories, setStories] = useState<Story[]>([]);
+
+  useEffect(() => {
+    const fetchStories = async () => {
+      const fetchedStories = await getStories("book_3");
+
+      if (fetchedStories) {
+        setStories(fetchedStories.Story);
+      }
+    };
+
+    fetchStories();
+  }, []);
+
   return (
     <Area>
       <ContentArea
@@ -34,7 +51,7 @@ const DetailPage: React.FC = () => {
             STORY HEIGHT: 5
           </Text>
 
-          <StoryTree />
+          <StoryTree stories={stories} />
 
           <FlexContainer
             justifyContent="flex-end"
