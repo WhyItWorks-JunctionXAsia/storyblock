@@ -9,8 +9,8 @@ const AccountPage: React.FC = () => {
         <Area>
             <ContentArea>
                 <img src={accountImage} width={"100%"}/>
-            </ContentArea>
-        </Area>
+
+
 
     );
 };
