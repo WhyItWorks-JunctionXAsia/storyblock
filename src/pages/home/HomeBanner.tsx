@@ -8,7 +8,7 @@ const HomeBanner: React.FC = () => {
     return (
         <FlexContainer flexDirection={"column"}>
             <img src={homeBanner}/>
-            <VoteStory/>
+
         </FlexContainer>
     );
 };
