@@ -3,14 +3,9 @@ import Button from "components/Button";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import { colorset } from "utils/styles";
-import pencil from "assets/icons/pencil-fill.svg";
-import coverSample1 from "assets/images/cover-sample-1.jpg";
-import coverSample2 from "assets/images/cover-sample-2.jpg";
-import coverSample3 from "assets/images/cover-sample-3.jpg";
-import coverSample4 from "assets/images/cover-sample-4.jpg";
-import coverSample5 from "assets/images/cover-sample-5.jpg";
 
-export const coverSampleArray = [coverSample1,coverSample2,coverSample3,coverSample4,coverSample5]
+import {coverSampleArray} from "../../types/constant";
+
 
 
 interface StoryCardProps {

@@ -6,8 +6,9 @@ import Text from "components/Text";
 import caretDown from "assets/icons/caret-down-filled.svg";
 import caretUp from "assets/icons/caret-up-filled.svg";
 import coverSample1 from "assets/images/cover-sample-1.jpg";
+import {BookNameArray, coverSampleArray} from "../../types/constant";
 
-const VoteCard: React.FC = () => {
+const VoteCard: React.FC<{current_number:number}> = ({current_number}) => {
   const [up, setUp] = useState(true);
 
   return (
@@ -21,7 +22,7 @@ const VoteCard: React.FC = () => {
       }}
     >
       <img
-        src={coverSample1}
+        src={coverSampleArray[current_number]}
         width="150px"
         height="150px"
         style={{ objectFit: "cover", objectPosition: "center center" }}
@@ -46,7 +47,7 @@ const VoteCard: React.FC = () => {
             textOverflow: "ellipsis",
           }}
         >
-          THE DEFINITION OF A POLITICAL TITLE CONTINUES SOMETHING
+            {BookNameArray[current_number]}
         </Text>
         <Text>RANK 5</Text>
 

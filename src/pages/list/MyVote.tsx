@@ -20,10 +20,10 @@ const MyVote: React.FC = () => {
             marginBottom: "50px",
           }}
         >
-          <VoteCard />
-          <VoteCard />
-          <VoteCard />
-          <VoteCard />
+        {[...Array(5).keys()].map((number) => (
+            <VoteCard  current_number = {number}/>
+        ))}
+
         </div>
         <FlexContainer justifyContent="center">
           <Button
