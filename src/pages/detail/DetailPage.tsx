@@ -17,12 +17,9 @@ const DetailPage: React.FC = () => {
 
   useEffect(() => {
     const fetchStories = async () => {
-      console.log("here");
       const fetchedStories = await getStories("book_3");
 
       if (fetchedStories) {
-        fetchedStories.Story.sort(heightCompare);
-        console.log(fetchedStories);
         setStories(fetchedStories.Story);
       }
     };

@@ -51,3 +51,16 @@ export interface GetStoriesResp {
 export interface GetBooksResp {
   Book: Book[];
 }
+
+export interface Vote {
+  creator: string;
+  id: string;
+  keplr: string;
+  storyId: string;
+  createdHeight: string;
+}
+
+export interface GetVotesResp {
+  book: Book;
+  Vote: Vote[];
+}
