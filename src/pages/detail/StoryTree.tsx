@@ -1,8 +1,13 @@
 import React from "react";
 import Story from "pages/detail/Story";
 import StoryLine from "pages/detail/StoryLine";
+import { Story as StoryType } from "utils/types";
 
-const StoryTree: React.FC = () => {
+interface StoryTreeProps {
+  stories: StoryType[];
+}
+
+const StoryTree: React.FC<StoryTreeProps> = ({ stories }) => {
   return (
     <>
       <div
