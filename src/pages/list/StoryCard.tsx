@@ -1,9 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "components/Button";
 import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import { colorset } from "utils/styles";
-import pencil from "assets/icons/pencil-fill.svg";
 import coverSample from "assets/images/cover-sample.jpg";
 
 interface StoryCardProps {
@@ -11,6 +11,8 @@ interface StoryCardProps {
 }
 
 const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
+  const navigate = useNavigate();
+
   return (
     <FlexContainer
       flexDirection="column"
@@ -56,6 +58,9 @@ const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
       </Text>
 
       <Button
+        onClick={() => {
+          navigate("/details");
+        }}
         background={colorset.white}
         style={{
           position: "absolute",
@@ -66,10 +71,9 @@ const StoryCard: React.FC<StoryCardProps> = ({ current }) => {
           borderRadius: "25px",
         }}
       >
-
-          <Text size="ml" color={current ? colorset.text : "#737373"}>
-            VIEW
-          </Text>
+        <Text size="ml" color={current ? colorset.text : "#737373"}>
+          VIEW
+        </Text>
       </Button>
     </FlexContainer>
   );
