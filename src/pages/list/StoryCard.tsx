@@ -61,7 +61,7 @@ const StoryCard: React.FC<StoryCardProps> = ({
           whiteSpace: "nowrap",
         }}
       >
-        THE DEFINITION OF A POLITICAL TITLE CONTINUES SOMETHING
+        {book.title.toLocaleUpperCase()}
       </Text>
 
       <Button
