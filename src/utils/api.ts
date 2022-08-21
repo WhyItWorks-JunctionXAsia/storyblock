@@ -2,11 +2,12 @@ import axios from "axios";
 import { BASE_URL, GET_PORT, POST_PORT } from "utils/utils";
 import { BookRegi, GetBooksResp, GetStoriesResp, StoryRegi } from "./types";
 
-export const getBooks = async () => {
+export const getBooks = async ()=> {
   try {
-    const { data } = await axios.get<GetBooksResp>(
+    const response = await axios.get<GetBooksResp>(
       `${BASE_URL}:${GET_PORT}/storyblock/storyblock/books`
     );
+    const {data} = response
 
     return data;
   } catch (error) {}
