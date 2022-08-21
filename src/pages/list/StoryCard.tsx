@@ -5,15 +5,19 @@ import FlexContainer from "components/FlexContainer";
 import Text from "components/Text";
 import { coverSampleArray } from "types/constant";
 import { colorset } from "utils/styles";
-import {Book} from "../../utils/types";
+import { Book } from "../../utils/types";
 
 interface StoryCardProps {
   current: boolean;
   current_number: number;
-  book: Book
+  book: Book;
 }
 
-const StoryCard: React.FC<StoryCardProps> = ({ book,current, current_number }) => {
+const StoryCard: React.FC<StoryCardProps> = ({
+  book,
+  current,
+  current_number,
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -35,7 +39,7 @@ const StoryCard: React.FC<StoryCardProps> = ({ book,current, current_number }) =
       }}
     >
       <img
-        src={coverSampleArray[current_number]}
+        src={coverSampleArray[current_number % 5]}
         width="320px"
         height="320px"
         style={{
